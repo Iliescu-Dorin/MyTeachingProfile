@@ -1,0 +1,7 @@
+{
+  "name": "tgihub-example-teacher_portofolio",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "registry:npm/gulp#4.0.0-alpha.2+20160817105618"
+  }
+}
