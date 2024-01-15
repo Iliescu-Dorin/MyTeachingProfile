@@ -11,7 +11,6 @@
   
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css">
-  
   <!-- Owl Carousel -->
   <link rel="stylesheet" href="css/owl.carousel.css">
   <link rel="stylesheet" href="css/owl.theme.default.min.css">
@@ -24,14 +23,27 @@
 </head>
 <body>
   <header class="header">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/experience.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/portfolio.css">
+    <link rel="stylesheet" href="css/services.css">
+    <link rel="stylesheet" href="css/skills.css">
+    <link rel="stylesheet" href="css/swiper.css">
+    <link rel="stylesheet" href="css/testimonials.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/footer.css">
     <div class="container">
         <nav class="navbar">
             <a href="#" class="nav-logo">
-                <img src="images/logo.png" alt="">
+                <img src="images/logo.png" alt="Company Logo">
             </a>
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="index.html" class="nav-link active" aria-current="page">Home</a>
                 </li>
                 <li class="nav-item">
                     <a href="teaching.html" class="nav-link">Teaching</a>
@@ -43,7 +55,8 @@
                     <a href="about.html" class="nav-link">About</a>
                 </li>
             </ul>
-            <div class="hamburger">
+            <div class="hamburger" aria-controls="navbar" aria-expanded="false" tabindex="0" role="button"
+                aria-label="Toggle navigation">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -471,80 +484,63 @@
   </div>
 </section>
   <footer>
-    <div class="container">
-      <div class="logo">
-        <img src="images/logo.png" alt="">
-      </div>
-
-      <div class="content grid">
-        <div class="box">
-          <h4>Solutions</h4>
-          <ul>
-            <li>Control</li>
-            <li>Scalability & Efficiency</li>
-            <li>Supported by Experts</li>
-            <li>Performance & Security</li>
-          </ul>
-        </div>
-
-        <div class="box">
-          <h4>Links</h4>
-          <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Services</li>
-            <li>Work</li>
-            <li>Journey</li>
-          </ul>
-        </div>
-
-        <div class="box">
-          <h4>Resources</h4>
-          <ul>
-            <li>Case Studies</li>
-            <li>Blog</li>
-            <li>I'm a Client</li>
-          </ul>
-        </div>
-
-        <div class="box">
-          <h4>Company</h4>
-          <ul>
-            <li>About Us</li>
-            <li>Careers</li>
-            <li>Newsroom</li>
-            <li>Contact Us</li>
-          </ul>
-        </div>
-
-        <div class="box">
-          <div class="text">
-            <span>000-000-000</span><br>
-            <label>Address</label><br>
-            <label>yourname@mit.edu</label><br>
-            <p>Cambridge, United States</p>
-          </div>
-
-          <div class="icon flex1">
-            <i class="fab fa-weixin"></i>
-            <i class="fab fa-qq"></i>
-            <i class="fab fa-youtube"></i>
-            <i class="fab fa-twitter"></i>
-            <i class="fab fa-linkedin-in"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="legal flex1">
-        <div class="box">
-          <p>&copy; 2021 Naem Azam. All Rights Reserved.</p>
-        </div>
-        <div class="box flex">
-          <p><a href="https://github.com/naemazam">GitHub</a></p>
-        </div>
-      </div>
+  <div class="container">
+    <div class="logo">
+      <img src="images/logo.png" alt="Company Logo">
     </div>
-  </footer>
+
+    <nav class="content grid">
+      <div class="box">
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="/control">Control</a></li>
+          <li><a href="/scalability">Scalability & Efficiency</a></li>
+          <li><a href="/experts">Supported by Experts</a></li>
+          <li><a href="/performance">Performance & Security</a></li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <h4>Links</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/services">Services</a></li>
+          <li><a href="/work">Work</a></li>
+          <li><a href="/journey">Journey</a></li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/case-studies">Case Studies</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/client-portal">I'm a Client</a></li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about-us">About Us</a></li>
+          <li><a href="/careers">Careers</a></li>
+          <li><a href="/newsroom">Newsroom</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <address class="text">
+          <span>000-000-000</span><br>
+          <strong>Address</strong><br>
+          <a href="mailto:yourname@mit.edu">yourname@mit.edu</a><br>
+          <p>Cambridge, United States</p>
+        </address>
+      </div>
+    </nav>
+  </div>
+</footer>
 
   <script src="js/navigation.js"></script>
   <script src="js/portfolio-filter.js"></script>

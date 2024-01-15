@@ -1,0 +1,57 @@
+/*---------footer--------*/
+footer {
+    background: #1A232C;
+  }
+  
+  footer .content {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  
+  footer img {
+    width: auto;
+    margin-top: 50px;
+  }
+  
+  footer h4 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+  
+  footer li {
+    margin-bottom: 10px;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+  
+  footer .text {
+    margin-top: 30px;
+    background: #151d24;
+    padding: 10px;
+    padding-right: 30px;
+    border-radius: 50px 0 50px 0;
+    text-align: right;
+  }
+  
+  footer .icon {
+    margin-top: 30px;
+    transition: 0.5s;
+  }
+  
+  footer .icon i {
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  footer .box i:hover,
+  footer .box li:hover {
+    color: #20C863;
+    opacity: 1;
+  }
+  
+  footer .legal {
+    margin-top: 10px;
+    padding-bottom: 20px;
+  }
+  
+  /*---------footer--------*/
