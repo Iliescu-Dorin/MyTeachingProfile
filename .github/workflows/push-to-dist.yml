@@ -1,4 +1,4 @@
-name: Push to dist branch
+name: Push dist directory to dist branch
 
 on:
   push:
@@ -6,66 +6,43 @@ on:
       - main
 
 jobs:
-  build-and-push-to-dist:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the repository
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0 # Fetch all history for all tags and branches
+    - name: Checkout main branch
+      uses: actions/checkout@v2
 
-      # Set up Node.js (if your project requires it for building)
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14' # Specify the version of Node.js you want to use
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14' # Or whatever version of Node.js your project requires
 
-      # Install dependencies and build (if necessary)
-      - name: Install and Build
-        run: |
-          npm install
-          npm run build # This should create the `dist` directory
+    - name: Cache Node.js modules
+      uses: actions/cache@v2
+      env:
+        cache-name: cache-node-modules
+      with:
+        # Cache dependencies using a hash of the package-lock.json file as the key
+        path: ~/.npm
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
 
-      # Push the `dist` directory to the `dist` branch
-      - name: Push to dist branch
-        uses: actions/github-script@v3
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const fs = require('fs');
-            const path = require('path');
-            const process = require('process');
-            const { exec } = require('@actions/exec');
+    - name: Install dependencies
+      run: |
+        npm install
+        npm install --global gulp-cli
 
-            const distPath = path.join(process.cwd(), 'dist');
-            const distBranch = 'dist';
-            const mainBranch = 'main';
+    - name: Run gulp build
+      run: gulp build # This command assumes that your gulp tasks are defined in gulpfile.js
 
-            // Configure git
-            await exec('git', ['config', '--global', 'user.email', 'you@example.com']);
-            await exec('git', ['config', '--global', 'user.name', 'Your Name']);
-
-            // Checkout the dist branch
-            await exec('git', ['checkout', distBranch]);
-
-            // Delete all files and folders except the `.git` folder
-            fs.readdirSync(distPath).forEach(file => {
-              if (file !== '.git') {
-                fs.rmSync(path.join(distPath, file), { recursive: true, force: true });
-              }
-            });
-
-            // Copy new dist files
-            fs.readdirSync('dist').forEach(file => {
-              fs.cpSync(path.join('dist', file), path.join(distPath, file), { recursive: true });
-            });
-
-            // Add changes to git
-            await exec('git', ['add', '--all']);
-
-            // Commit changes
-            await exec('git', ['commit', '-m', 'Update dist']);
-
-            // Push to the dist branch
-            await exec('git', ['push', 'origin', distBranch]);
+    - name: Push dist directory to dist branch
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        publish_dir: ./dist
+        publish_branch: dist
+        keep_files: true  # Set to true to keep existing files in the branch
