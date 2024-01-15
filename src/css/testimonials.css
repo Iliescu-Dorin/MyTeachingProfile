@@ -1,0 +1,53 @@
+/*---------Testimonials--------*/
+.Testimonials h2 {
+    margin: 0;
+  }
+  
+  .Testimonials .img {
+    margin-top: 100px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .Testimonials .img img {
+    width: auto;
+    height: auto;
+    filter: brightness(7);
+    opacity: 0.5;
+    margin-top: 50px;
+  }
+  
+  .Testimonials .img img:hover {
+    filter: brightness(1);
+    opacity: 1;
+    cursor: pointer;
+  }
+  
+  .Testimonials .item .item_img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .Testimonials .item img {
+    border-radius: 50%;
+  }
+  
+  .Testimonials i {
+    color: #20C863;
+    font-size: 80px;
+  }
+  
+  .Testimonials .item p {
+    font-size: 20px;
+    line-height: 35px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+  
+  .Testimonials h4 {
+    color: #20C863;
+    font-size: 20px;
+  }
+  
+  /*---------Testimonials--------*/
+
+  

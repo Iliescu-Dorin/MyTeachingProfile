@@ -1,0 +1,87 @@
+/*---------experience--------*/
+.experience {
+    padding-top: 5%;
+  }
+  
+  .experience h2 {
+    margin: 0;
+  }
+  
+  .experience .heading_top {
+    justify-content: center;
+  }
+  
+  .experience .left img {
+    width: 80%;
+  }
+  
+  .timeline {
+    position: relative;
+  }
+  
+  .timeline .content section {
+    width: 100%;
+  }
+  
+  .timeline .line {
+    position: absolute;
+    height: 100%;
+    width: 4px;
+    background: white;
+    left: 0;
+  }
+  
+  .timeline .icon {
+    position: absolute;
+    background: #FFC514;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    line-height: 60px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 30px !important;
+    box-shadow: 0 0 0 4px white,
+  }
+  
+  .timeline .content:nth-child(5) .icon,
+  .timeline .content:nth-child(3) .icon {
+    background: #20C863;
+  }
+  
+  .content-1 .icon {
+    position: absolute;
+    left: -30px;
+    top: 0;
+  }
+  
+  .timeline .content section {
+    border-radius: 5px;
+    width: 100%;
+    padding-left: 40px;
+    position: relative;
+  }
+  
+  .timeline span {
+    color: #AC8713;
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  
+  .timeline .content:nth-child(5) span,
+  .timeline .content:nth-child(3) span {
+    color: #20C863;
+  }
+  
+  .timeline .content {
+    margin-bottom: 20px;
+  }
+  
+  .timeline p {
+    opacity: 0.5;
+  }
+  
+  /*---------experience--------*/
+
+  

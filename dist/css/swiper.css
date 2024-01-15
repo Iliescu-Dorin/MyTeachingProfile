@@ -1,0 +1,156 @@
+/*----------swiper-------*/
+li {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+    color:#ffffff;
+  }
+  
+  header {
+    background: #1A232C;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+  }
+  
+  .hamburger {
+    display: none;
+  }
+  
+  .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: #fff;
+  }
+  
+  .nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-item {
+    margin-left: 30px;
+  }
+  
+  .nav-link {
+    font-size: 18px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: 0.5s;
+  }
+  
+  .nav-link:hover {
+    color: #20C863;
+    border-bottom: 2px solid #20C863;
+  }
+  
+  .nav-link.active {
+    color: #20C863;
+    border-bottom: 2px solid #20C863;
+  }
+  
+  .nav-logo {
+    font-size: 20PX;
+    color: white;
+    font-weight: 500;
+  }
+  .nav-logo img  {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  header.sticky {
+    z-index: 10;
+    position: fixed;
+    width: 100%;
+    background: #0F161C;
+    transition: 0.5s;
+    height: 10vh;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+  }
+  
+  header.sticky ul li a {
+    color: #fff;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .nav-menu {
+      position: fixed;
+      left: -100%;
+      top: 5rem;
+      flex-direction: column;
+      background: #0F161C;
+      width: 100%;
+      border-radius: 10px;
+      text-align: center;
+      transition: 0.3s;
+      z-index: 10;
+      box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    }
+  
+    .nav-link {
+      color: white;
+    }
+  
+    .nav-menu.active {
+      left: 0;
+    }
+  
+    .nav-item {
+      margin: 2.5rem 0;
+    }
+  
+    /* Add this CSS to your existing styles */
+    .nav-menu .dropdown-menu {
+      display: none;
+      position: absolute;
+      /* background-color: #fff; */
+      /* You can customize the background color */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      /* Add a shadow for a nice effect */
+      z-index: 1;
+    }
+  
+    .nav-menu .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+  
+    .nav-menu .dropdown-menu li {
+      display: block;
+    }
+  
+    /* Add a transition for a smooth appearance */
+    .nav-menu .dropdown-menu {
+      transition: display 0.3s ease;
+    }
+  
+    .hamburger {
+      display: block;
+      cursor: pointer;
+    }
+  
+    .hamburger.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+  
+    .hamburger.active .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+  
+    .hamburger.active .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
