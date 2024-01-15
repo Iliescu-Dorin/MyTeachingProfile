@@ -37,7 +37,7 @@ jobs:
         npm install --global gulp-cli
 
     - name: Run gulp build
-      run: gulp build # This command assumes that your gulp tasks are defined in gulpfile.js
+      run: gulp # This command assumes that your gulp tasks are defined in gulpfile.js
 
     - name: Push dist directory to dist branch
       uses: peaceiris/actions-gh-pages@v3
