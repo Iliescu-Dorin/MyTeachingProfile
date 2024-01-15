@@ -3,47 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Teacher's Portfolio</title>
+  <title>Teacher's portfolio</title>
   
-  <!-- Preload Key Requests -->
-  <link rel="preload" href="css/style.min.css" as="style">
-  <link rel="preload" href="js/jquery3.4.1.min.js" as="script">
-  
-  <!-- Font Awesome - Use a specific version for better caching -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   
-  <!-- Minified and Combined CSS -->
-  <link rel="stylesheet" href="css/style.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
   
-  <!-- Owl Carousel CSS Combined -->
-  <link rel="stylesheet" href="css/owl.combined.min.css">
+  <!-- Owl Carousel -->
+  <link rel="stylesheet" href="css/owl.carousel.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  
+  <!-- jQuery - Use only one version, the latest is preferable -->
+  <script src="js/jquery3.4.1.min.js" charset="utf-8"></script>
+  
+  <!-- Owl Carousel JavaScript -->
+  <script src="js/owl.carousel.js" charset="utf-8"></script>
 </head>
 <body>
-  <!-- Partial includes should be server-side includes or component templates -->
   @@include('./partials/header.html')
-  
-  <main id="container" role="main">
-    <!-- Use of 'aria-label' for accessibility -->
-    <button class="learn-more" aria-label="Learn more about Teacher's Portfolio">
-      <span class="circle" aria-hidden="true">
-        <span class="icon arrow"></span>
-      </span>
-      <span class="button-text">Learn More</span>
-    </button>
-  </main>
-  
-  <!-- Server-side includes or component templates for blog and footer -->
+  <div id="container">
+  <button class="learn-more">
+    <span class="circle" aria-hidden="true">
+      <span class="icon arrow"></span>
+    </span>
+    <span class="button-text">Learn More</span>
+  </button>
+</div>
   @@include('./sections/blog.html')
   @@include('./partials/footer.html')
 
-  <!-- Async loading of non-critical JavaScript files -->
-  <script src="js/navigation.js" async></script>
-  <script src="js/portfolio-filter.js" async></script>
-  <script src="js/testimonials-carousel.js" async></script>
-  
-  <!-- Minified jQuery and Owl Carousel JavaScript -->
-  <script src="js/jquery3.4.1.min.js" defer></script>
-  <script src="js/owl.carousel.min.js" defer></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/portfolio-filter.js"></script>
+  <script src="js/testimonials-carousel.js"></script>
 </body>
 </html>
+
