@@ -1,0 +1,71 @@
+name: Push to dist branch
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push-to-dist:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Fetch all history for all tags and branches
+
+      # Set up Node.js (if your project requires it for building)
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14' # Specify the version of Node.js you want to use
+
+      # Install dependencies and build (if necessary)
+      - name: Install and Build
+        run: |
+          npm install
+          npm run build # This should create the `dist` directory
+
+      # Push the `dist` directory to the `dist` branch
+      - name: Push to dist branch
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            const process = require('process');
+            const { exec } = require('@actions/exec');
+
+            const distPath = path.join(process.cwd(), 'dist');
+            const distBranch = 'dist';
+            const mainBranch = 'main';
+
+            // Configure git
+            await exec('git', ['config', '--global', 'user.email', 'you@example.com']);
+            await exec('git', ['config', '--global', 'user.name', 'Your Name']);
+
+            // Checkout the dist branch
+            await exec('git', ['checkout', distBranch]);
+
+            // Delete all files and folders except the `.git` folder
+            fs.readdirSync(distPath).forEach(file => {
+              if (file !== '.git') {
+                fs.rmSync(path.join(distPath, file), { recursive: true, force: true });
+              }
+            });
+
+            // Copy new dist files
+            fs.readdirSync('dist').forEach(file => {
+              fs.cpSync(path.join('dist', file), path.join(distPath, file), { recursive: true });
+            });
+
+            // Add changes to git
+            await exec('git', ['add', '--all']);
+
+            // Commit changes
+            await exec('git', ['commit', '-m', 'Update dist']);
+
+            // Push to the dist branch
+            await exec('git', ['push', 'origin', distBranch]);
