@@ -91,7 +91,12 @@ header {
   color: white;
   font-weight: 500;
 }
-
+.nav-logo img  {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
 header.sticky {
   z-index: 10;
   position: fixed;
